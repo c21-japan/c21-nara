@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>センチュリー21 - 一括査定の問題解決</title>
+    <title>センチュリー21 ホームマート｜奈良・南大阪の不動産売却</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,34 +14,164 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --black: #383635;
+            --gold: #A19276;
+            --danger: #C53B3B;
+            --white: #FFFFFF;
+            --bg-light: #FDFCFA;
+            --shadow: 0 4px 20px rgba(56, 54, 53, 0.08);
+            --radius: 16px;
+            --radius-sm: 12px;
+        }
+        
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background: #f8f7f5;
-            color: #383635;
-            line-height: 1.6;
+            color: var(--black);
+            background: var(--bg-light);
+            line-height: 1.7;
         }
         
-        .container {
+        /* ヘッダー */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        /* 図1: 比較図 */
-        .comparison-section {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
         
-        .comparison-title {
-            text-align: center;
-            font-size: 28px;
+        .logo-main {
+            height: 40px;
+        }
+        
+        .company-name {
+            font-size: 18px;
             font-weight: 700;
+            color: var(--black);
+        }
+        
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        .tel-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--gold) 0%, #8a7d64 100%);
+            color: var(--white);
+            padding: 12px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* メインビジュアル */
+        .hero-section {
+            background: linear-gradient(135deg, #383635 0%, #4a4745 100%);
+            color: var(--white);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
             margin-bottom: 40px;
-            color: #383635;
+            opacity: 0.9;
+        }
+        
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .badge-item {
+            background: var(--gold);
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+        
+        /* 図解セクション共通 */
+        .diagram-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-label {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--white);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+        
+        .section-description {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        /* 図1: 一括査定の闇 vs 当社の解決 */
+        .comparison-container {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 40px;
+            position: relative;
         }
         
         .comparison-grid {
@@ -48,324 +181,673 @@
             position: relative;
         }
         
-        .comparison-grid::after {
-            content: 'VS';
+        .vs-badge {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: #A19276;
-            color: white;
-            width: 60px;
-            height: 60px;
+            background: var(--gold);
+            color: var(--white);
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 20px;
+            font-weight: 900;
+            font-size: 24px;
             z-index: 10;
+            box-shadow: 0 8px 24px rgba(161, 146, 118, 0.4);
+        }
+        
+        .comparison-side {
+            padding: 32px;
+            border-radius: var(--radius-sm);
+            position: relative;
         }
         
         .comparison-left {
-            background: #f5f5f5;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 30px;
-            position: relative;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            border: 2px solid #d0d0d0;
         }
         
         .comparison-right {
-            background: linear-gradient(135deg, #fdfcfa 0%, #f9f7f3 100%);
-            border: 2px solid #A19276;
-            border-radius: 12px;
-            padding: 30px;
-            position: relative;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #f9f7f3 100%);
+            border: 2px solid var(--gold);
         }
         
-        .badge-danger {
-            background: #C53B3B;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 16px;
-        }
-        
-        .badge-success {
-            background: #A19276;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 16px;
-        }
-        
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #383635;
-        }
-        
-        .flow-diagram {
-            margin: 20px 0;
-        }
-        
-        .flow-step {
-            background: white;
-            border-radius: 8px;
-            padding: 12px;
-            margin: 10px 0;
+        .side-header {
             display: flex;
             align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .character-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            object-fit: cover;
+        }
+        
+        .side-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--black);
+        }
+        
+        .flow-box {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         
         .flow-arrow {
             text-align: center;
             color: #999;
-            font-size: 20px;
+            font-size: 24px;
             margin: 8px 0;
         }
         
-        .problem-list {
+        .alert-box {
+            background: #FEE;
+            border: 2px solid var(--danger);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .alert-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--danger);
+        }
+        
+        .success-box {
+            background: #F0F9F0;
+            border: 2px solid #4CAF50;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .success-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+        }
+        
+        .problem-points,
+        .benefit-points {
             list-style: none;
-            margin-top: 20px;
+            margin-top: 24px;
         }
         
-        .problem-list li {
-            padding: 10px 0;
-            padding-left: 30px;
+        .problem-points li,
+        .benefit-points li {
+            padding: 12px 0;
+            padding-left: 36px;
             position: relative;
+            font-size: 15px;
+            line-height: 1.6;
         }
         
-        .problem-list li::before {
+        .problem-points li::before {
             content: '×';
             position: absolute;
             left: 0;
-            color: #C53B3B;
+            top: 12px;
+            color: var(--danger);
             font-weight: 700;
-            font-size: 20px;
+            font-size: 24px;
         }
         
-        .benefit-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-        
-        .benefit-list li {
-            padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
-        
-        .benefit-list li::before {
+        .benefit-points li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: #A19276;
+            top: 12px;
+            color: var(--gold);
             font-weight: 700;
-            font-size: 20px;
+            font-size: 24px;
         }
         
-        .highlight-gold {
-            background: linear-gradient(transparent 60%, #A19276 60%, #A19276 90%, transparent 90%);
+        .highlight-text {
+            background: linear-gradient(transparent 60%, rgba(161, 146, 118, 0.3) 60%, rgba(161, 146, 118, 0.3) 90%, transparent 90%);
             font-weight: 600;
         }
         
         /* 図2: 3ステップ */
-        .steps-section {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
-        }
-        
-        .steps-title {
-            text-align: center;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: #383635;
-        }
-        
-        .steps-grid {
+        .steps-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 32px;
+            margin-top: 60px;
         }
         
         .step-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
             text-align: center;
-            padding: 30px 20px;
-            border-radius: 12px;
-            background: #fdfcfa;
-            border: 2px solid #A19276;
             position: relative;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .step-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
         }
         
         .step-number {
-            width: 50px;
-            height: 50px;
-            background: #A19276;
-            color: white;
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            font-weight: 700;
-            margin: 0 auto 20px;
+            font-size: 28px;
+            font-weight: 900;
+            margin: 0 auto 24px;
+        }
+        
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
         
         .step-title {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 12px;
-            color: #383635;
+            margin-bottom: 16px;
+            color: var(--black);
         }
         
-        .step-description {
+        .step-content {
             font-size: 14px;
             color: #666;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         
         /* 図3: 選ばれる理由 */
-        .value-section {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
-        }
-        
         .value-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
+            gap: 32px;
+            margin-top: 60px;
         }
         
         .value-card {
-            padding: 24px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #fdfcfa 0%, #f9f7f3 100%);
-            border: 1px solid #e8e5df;
-            text-align: center;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
         }
         
-        .value-icon {
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+        }
+        
+        .value-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .value-icon-wrapper {
             width: 60px;
             height: 60px;
-            background: #A19276;
+            background: var(--gold);
             border-radius: 50%;
-            margin: 0 auto 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 24px;
+            color: var(--white);
+            font-size: 28px;
+        }
+        
+        .value-dog-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
         
         .value-title {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
-            margin-bottom: 8px;
-            color: #383635;
+            color: var(--black);
         }
         
-        .value-text {
-            font-size: 13px;
+        .value-description {
+            font-size: 14px;
             color: #666;
-            line-height: 1.5;
+            line-height: 1.7;
         }
         
         /* 図4: 電話は責任者のみ */
-        .phone-section {
-            background: linear-gradient(135deg, #A19276 0%, #8a7d64 100%);
-            border-radius: 16px;
-            padding: 40px;
-            color: white;
+        .phone-declaration {
+            background: linear-gradient(135deg, var(--gold) 0%, #8a7d64 100%);
+            border-radius: var(--radius);
+            padding: 60px 40px;
+            color: var(--white);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phone-declaration::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .phone-main-title {
+            font-size: 36px;
+            font-weight: 900;
             margin-bottom: 40px;
+            position: relative;
         }
         
-        .phone-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-        
-        .phone-flow {
+        .phone-flow-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 24px;
             margin: 40px 0;
+            position: relative;
         }
         
         .phone-node {
-            background: white;
-            color: #383635;
-            padding: 16px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: var(--white);
+            color: var(--black);
+            padding: 20px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            position: relative;
         }
         
-        .phone-arrow {
-            color: white;
-            font-size: 24px;
+        .phone-node.primary {
+            background: var(--black);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+        
+        .flow-connector {
+            color: var(--white);
+            font-size: 32px;
+            font-weight: 700;
+        }
+        
+        .no-phone-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            position: absolute;
+            top: -20px;
+            right: -20px;
         }
         
         .phone-emphasis {
             font-size: 20px;
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
+            margin-top: 40px;
+            padding: 24px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
             border: 2px solid rgba(255,255,255,0.3);
+            font-weight: 500;
+        }
+        
+        /* 図5: 付加価値サービス */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        }
+        
+        .service-badge {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: var(--gold);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        
+        .service-dog-bubble {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .bubble-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+        }
+        
+        .bubble-text {
+            background: var(--gold);
+            color: var(--white);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .bubble-text::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 4px 4px 4px 0;
+            border-color: transparent var(--gold) transparent transparent;
+        }
+        
+        .service-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+        
+        .service-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* 図6: ケース事例 */
+        .cases-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+        }
+        
+        .case-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .case-header {
+            background: linear-gradient(135deg, var(--gold) 0%, #8a7d64 100%);
+            color: var(--white);
+            padding: 20px;
+            position: relative;
+        }
+        
+        .case-number {
+            font-size: 12px;
+            font-weight: 700;
+            opacity: 0.8;
+        }
+        
+        .case-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+        
+        .case-family-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            position: absolute;
+            bottom: -30px;
+            right: 20px;
+            border: 3px solid var(--white);
+        }
+        
+        .case-body {
+            padding: 40px 20px 20px;
+        }
+        
+        .case-result {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+        
+        .result-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+        }
+        
+        .result-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+        }
+        
+        .case-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* フッター（CTA） */
+        .cta-section {
+            background: linear-gradient(135deg, var(--black) 0%, #4a4745 100%);
+            color: var(--white);
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 24px;
+        }
+        
+        .cta-description {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+        
+        .cta-primary {
+            background: var(--gold);
+            color: var(--white);
+            padding: 20px 48px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(161, 146, 118, 0.4);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 20px 48px;
+            border: 2px solid var(--white);
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        .cta-secondary:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+        
+        /* フッター */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 24px;
+        }
+        
+        .footer-info {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.8;
         }
         
         /* レスポンシブ */
         @media (max-width: 768px) {
+            .header-container {
+                padding: 16px 24px;
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
             .comparison-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 60px;
             }
             
-            .comparison-grid::after {
-                top: 50%;
-                left: 50%;
+            .vs-badge {
+                top: 48%;
             }
             
-            .steps-grid,
-            .value-grid {
+            .steps-container,
+            .value-grid,
+            .services-grid,
+            .cases-container {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 24px;
             }
             
-            .phone-flow {
+            .phone-flow-container {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .flow-connector {
+                transform: rotate(90deg);
+            }
+            
+            .cta-buttons {
                 flex-direction: column;
             }
             
-            .phone-arrow {
-                transform: rotate(90deg);
+            .diagram-section {
+                padding: 60px 24px;
             }
         }
         
         /* アニメーション */
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -374,162 +856,433 @@
         }
         
         .fade-in {
-            animation: fadeIn 0.6s ease-out;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* スクロールアニメーション用 */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <img src="century21logo_gold.png" alt="センチュリー21" class="logo-main">
+                <div class="company-name">ホームマート 広陵店</div>
+            </div>
+            <div class="header-contact">
+                <a href="tel:0120-43-8639" class="tel-number">📞 0120-43-8639</a>
+                <a href="#contact" class="cta-button">無料査定を申し込む</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- メインビジュアル -->
+    <section class="hero-section">
+        <h1 class="hero-title fade-in">
+            一括査定サイトの<span style="color: var(--gold);">営業電話ラッシュ</span>から<br>
+            あなたを守ります
+        </h1>
+        <p class="hero-subtitle fade-in">
+            センチュリー21なら、責任者1名がワンストップで対応<br>
+            複数社からの営業電話は一切ありません
+        </p>
+        <div class="hero-badges fade-in">
+            <span class="badge-item">全国948店舗</span>
+            <span class="badge-item">地域密着40年</span>
+            <span class="badge-item">成約率2.3倍</span>
+        </div>
+    </section>
+    
     <!-- 図1: 一括査定の闇 vs 当社の解決 -->
-    <div class="container">
-        <div class="comparison-section fade-in">
-            <h2 class="comparison-title">不動産売却の新しい選択肢</h2>
-            
+    <section class="diagram-section scroll-fade">
+        <div class="section-header">
+            <span class="section-label">PROBLEM & SOLUTION</span>
+            <h2 class="section-title">不動産売却の新しい選択肢</h2>
+            <p class="section-description">
+                従来の一括査定サイトの問題点と、センチュリー21の解決策を比較
+            </p>
+        </div>
+        
+        <div class="comparison-container">
             <div class="comparison-grid">
-                <!-- 左側: 従来の問題 -->
-                <div class="comparison-left">
-                    <span class="badge-danger">従来の一括査定サイト</span>
-                    <h3 class="section-title">送客課金型の実態</h3>
+                <div class="vs-badge">VS</div>
+                
+                <!-- 左側：従来の問題 -->
+                <div class="comparison-side comparison-left">
+                    <div class="side-header">
+                        <img src="03_shinchan.jpg" alt="しんちゃん困惑" class="character-icon">
+                        <h3 class="side-title">従来の一括査定サイト</h3>
+                    </div>
                     
-                    <div class="flow-diagram">
-                        <div class="flow-step">あなた → 一括査定サイト</div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step">A社〜E社（各社1万円支払い）</div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step" style="background: #fee;">
-                            サイト収益 = 5社 × 1万円 = 5万円
+                    <div class="flow-box">
+                        <span>あなた</span>
+                        <span>→</span>
+                        <span>一括査定サイト</span>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-box">
+                        <span>A社〜E社へ情報送信</span>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    
+                    <div class="alert-box">
+                        <img src="01_shinchan.jpg" alt="しんちゃん驚き" class="alert-icon">
+                        <div>
+                            <strong>サイト収益 = 5社 × 1万円 = 5万円</strong><br>
+                            <small>※送客課金型：量が優先され、ユーザーは疲弊</small>
                         </div>
                     </div>
                     
-                    <ul class="problem-list">
-                        <li>平均5.2社から営業電話が殺到</li>
-                        <li>見せ高査定で釣る手法が横行</li>
-                        <li>専任媒介3ヶ月の縛り</li>
-                        <li>査定額の乖離率30%以上も</li>
+                    <ul class="problem-points">
+                        <li><span class="highlight-text">平均5.2社</span>から営業電話が殺到</li>
+                        <li>「その金額じゃ売れないかも!?」見せ高査定</li>
+                        <li>専任/専属専任 <span class="highlight-text">3ヶ月の縛り</span></li>
+                        <li>査定額の乖離率<span class="highlight-text">30%以上</span>も</li>
                     </ul>
                 </div>
                 
-                <!-- 右側: 解決策 -->
-                <div class="comparison-right">
-                    <span class="badge-success">センチュリー21の解決策</span>
-                    <h3 class="section-title">責任者1名がワンストップ対応</h3>
+                <!-- 右側：解決策 -->
+                <div class="comparison-side comparison-right">
+                    <div class="side-header">
+                        <img src="19_family改.jpg" alt="安心の家族" class="character-icon">
+                        <h3 class="side-title">センチュリー21の解決策</h3>
+                    </div>
                     
-                    <div class="flow-diagram">
-                        <div class="flow-step" style="border: 2px solid #A19276;">
-                            あなた → C21責任者（窓口1名）</div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step">"最適1社"を厳選</div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step" style="background: #f9f7f3;">
-                            条件×価格の交渉代行
+                    <div class="flow-box" style="border: 2px solid var(--gold);">
+                        <span>あなた</span>
+                        <span>→</span>
+                        <strong>C21責任者（窓口1名）</strong>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-box">
+                        <span>"最適1社"を厳選</span>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    
+                    <div class="success-box">
+                        <img src="13_shiro.jpg" alt="シロ" class="success-icon">
+                        <div>
+                            <strong>条件×価格の交渉代行</strong><br>
+                            <small>※連絡は責任者からのみ</small>
                         </div>
                     </div>
                     
-                    <ul class="benefit-list">
-                        <li>連絡は責任者からのみ</li>
+                    <ul class="benefit-points">
+                        <li><span class="highlight-text">連絡は責任者からのみ</span></li>
                         <li>電話ラッシュなし</li>
-                        <li>地域密着×全国948店舗連携</li>
-                        <li>成約率2.3倍の実績</li>
+                        <li>地域密着×<span class="highlight-text">全国948店舗</span>連携</li>
+                        <li><span class="highlight-text">成約率2.3倍</span>の実績</li>
                     </ul>
                 </div>
             </div>
         </div>
+    </section>
+    
+    <!-- 図2: 3ステップで完了 -->
+    <section class="diagram-section scroll-fade">
+        <div class="section-header">
+            <span class="section-label">SIMPLE PROCESS</span>
+            <h2 class="section-title">たった3ステップで最適な売却を実現</h2>
+            <p class="section-description">
+                面倒な手続きは一切なし。責任者がすべて代行します
+            </p>
+        </div>
         
-        <!-- 図2: 3ステップで完了 -->
-        <div class="steps-section fade-in">
-            <h2 class="steps-title">たった3ステップで最適な売却を実現</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <img src="04_shinchanpng (1).jpg" alt="しんちゃん説明" class="step-icon">
+                <div class="step-number">01</div>
+                <h3 class="step-title">物件情報入力</h3>
+                <div class="step-content">
+                    住所・種別・築年数<br>
+                    面積・ご希望条件を<br>
+                    簡単入力（<span class="highlight-text">60秒で完了</span>）
+                </div>
+            </div>
             
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">物件情報入力</h3>
-                    <p class="step-description">
-                        住所・種別・築年数<br>
-                        面積・ご希望条件を<br>
-                        簡単入力（60秒）
-                    </p>
+            <div class="step-card">
+                <img src="05_shinchan.jpg" alt="しんちゃん" class="step-icon">
+                <div class="step-number">02</div>
+                <h3 class="step-title">責任者が厳選＆交渉</h3>
+                <div class="step-content">
+                    地域特性を熟知した<br>
+                    責任者が<span class="highlight-text">最適な買主候補</span>を<br>
+                    全国ネットワークから選定
                 </div>
-                
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">責任者が厳選＆交渉</h3>
-                    <p class="step-description">
-                        地域特性を熟知した<br>
-                        責任者が最適な<br>
-                        買主候補を選定
-                    </p>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">条件提示→成約</h3>
-                    <p class="step-description">
-                        電話は責任者のみ<br>
-                        納得いく条件で<br>
-                        スムーズに成約
-                    </p>
+            </div>
+            
+            <div class="step-card">
+                <img src="14_shiro.jpg" alt="シロOK" class="step-icon">
+                <div class="step-number">03</div>
+                <h3 class="step-title">条件提示→成約</h3>
+                <div class="step-content">
+                    <span class="highlight-text">電話は責任者のみ</span><br>
+                    納得いく条件で<br>
+                    スムーズに成約
                 </div>
             </div>
         </div>
+    </section>
+    
+    <!-- 図3: 選ばれる理由 -->
+    <section class="diagram-section scroll-fade" style="background: var(--white);">
+        <div class="section-header">
+            <span class="section-label">OUR VALUE</span>
+            <h2 class="section-title">センチュリー21が選ばれる3つの理由</h2>
+            <p class="section-description">
+                お客様の不安を解決し、最適な売却を実現する仕組み
+            </p>
+        </div>
         
-        <!-- 図3: 選ばれる理由 -->
-        <div class="value-section fade-in">
-            <h2 class="steps-title">センチュリー21が選ばれる3つの理由</h2>
-            
-            <div class="value-grid">
-                <div class="value-card">
-                    <div class="value-icon">🏠</div>
+        <div class="value-grid">
+            <div class="value-card">
+                <img src="15_shiro.jpg" alt="シロポイント" class="value-dog-icon">
+                <div class="value-header">
+                    <div class="value-icon-wrapper">🏠</div>
                     <h3 class="value-title">地域密着×全国連携</h3>
-                    <p class="value-text">
-                        奈良・南大阪の地域特性を<br>
-                        熟知しつつ、全国948店舗の<br>
-                        ネットワークを活用
-                    </p>
                 </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">☎️</div>
+                <p class="value-description">
+                    奈良・南大阪の地域特性を熟知しつつ、<span class="highlight-text">全国948店舗</span>のネットワークを活用。地元の信頼と全国の販売力を両立します。
+                </p>
+            </div>
+            
+            <div class="value-card">
+                <img src="16_shiro.jpg" alt="シロポイント" class="value-dog-icon">
+                <div class="value-header">
+                    <div class="value-icon-wrapper">☎️</div>
                     <h3 class="value-title">責任者ワンストップ</h3>
-                    <p class="value-text">
-                        複数社からの営業電話なし<br>
-                        責任者1名が最初から最後まで<br>
-                        一貫してサポート
-                    </p>
                 </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">💎</div>
+                <p class="value-description">
+                    複数社からの営業電話は<span class="highlight-text">一切ありません</span>。責任者1名が最初から最後まで一貫してサポートします。
+                </p>
+            </div>
+            
+            <div class="value-card">
+                <img src="17_shiro.jpg" alt="シロポイント" class="value-dog-icon">
+                <div class="value-header">
+                    <div class="value-icon-wrapper">💎</div>
                     <h3 class="value-title">付加価値で条件づくり</h3>
-                    <p class="value-text">
-                        リースバック・瑕疵保証<br>
-                        相続サポート・VR内見など<br>
-                        売却を有利にする仕組み
-                    </p>
                 </div>
+                <p class="value-description">
+                    リースバック・瑕疵保証・相続サポート・VR内見など、<span class="highlight-text">売却を有利にする</span>付加価値サービスを提供。
+                </p>
             </div>
         </div>
-        
-        <!-- 図4: 電話は責任者のみ宣言 -->
-        <div class="phone-section fade-in">
-            <h2 class="phone-title">🔒 複数社からの営業電話は一切ありません</h2>
+    </section>
+    
+    <!-- 図4: 電話は責任者のみ宣言 -->
+    <section class="diagram-section scroll-fade">
+        <div class="phone-declaration">
+            <img src="06_shinchan (1).jpg" alt="しんちゃん電話バツ" class="no-phone-icon">
+            <h2 class="phone-main-title">
+                🔒 複数社からの営業電話は<br>一切ありません
+            </h2>
             
-            <div class="phone-flow">
+            <div class="phone-flow-container">
                 <div class="phone-node">お客様</div>
-                <span class="phone-arrow">→</span>
-                <div class="phone-node" style="background: #383635; color: white;">
-                    C21責任者<br>（窓口1名）
+                <span class="flow-connector">→</span>
+                <div class="phone-node primary">
+                    C21責任者<br>
+                    <small>（窓口1名）</small>
                 </div>
-                <span class="phone-arrow">→</span>
+                <span class="flow-connector">→</span>
                 <div class="phone-node">最適1社を選定</div>
-                <span class="phone-arrow">→</span>
+                <span class="flow-connector">→</span>
                 <div class="phone-node">成約</div>
             </div>
             
             <div class="phone-emphasis">
-                <span class="highlight-gold">全国948店舗の横連携</span> × <span class="highlight-gold">地域密着の目利き</span><br>
+                <span style="font-size: 24px; font-weight: 700;">全国948店舗の横連携 × 地域密着の目利き</span><br>
                 だからこそ実現できる、新しい不動産売却のカタチ
             </div>
         </div>
-    </div>
+    </section>
+    
+    <!-- 図5: 付加価値サービス -->
+    <section class="diagram-section scroll-fade" style="background: var(--bg-light);">
+        <div class="section-header">
+            <span class="section-label">ADDITIONAL SERVICES</span>
+            <h2 class="section-title">売却を有利にする付加価値サービス</h2>
+            <p class="section-description">
+                お客様の状況に合わせた最適なサービスをご提案
+            </p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-badge">人気No.1</span>
+                <div class="service-dog-bubble">
+                    <img src="18_shiro.jpg" alt="シロ" class="bubble-icon">
+                    <span class="bubble-text">安心感UP</span>
+                </div>
+                <h3 class="service-title">リースバック</h3>
+                <p class="service-description">
+                    売却後も住み続けられる画期的なサービス。引っ越し不要で資金調達が可能です。
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-badge">NEW</span>
+                <div class="service-dog-bubble">
+                    <img src="13_shiro.jpg" alt="シロ" class="bubble-icon">
+                    <span class="bubble-text">売却速度UP</span>
+                </div>
+                <h3 class="service-title">瑕疵・設備保証</h3>
+                <p class="service-description">
+                    売却後のトラブルを防ぐ保証サービス。買主様も安心して購入できます。
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-dog-bubble">
+                    <img src="14_shiro.jpg" alt="シロ" class="bubble-icon">
+                    <span class="bubble-text">手続き簡単</span>
+                </div>
+                <h3 class="service-title">相続サポート</h3>
+                <p class="service-description">
+                    相続に関わる複雑な手続きを専門家と連携してワンストップでサポート。
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-dog-bubble">
+                    <img src="15_shiro.jpg" alt="シロ" class="bubble-icon">
+                    <span class="bubble-text">内見数UP</span>
+                </div>
+                <h3 class="service-title">VR内見</h3>
+                <p class="service-description">
+                    360度カメラで撮影したVR内見で、遠方の方も物件を確認できます。
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-dog-bubble">
+                    <img src="16_shiro.jpg" alt="シロ" class="bubble-icon">
+                    <span class="bubble-text">価値UP</span>
+                </div>
+                <h3 class="service-title">リフォーム提案</h3>
+                <p class="service-description">
+                    売却前の効果的なリフォームで物件価値を最大化。費用対効果を重視。
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-dog-bubble">
+                    <img src="17_shiro.jpg" alt="シロ" class="bubble-icon">
+                    <span class="bubble-text">正確査定</span>
+                </div>
+                <h3 class="service-title">測量サービス</h3>
+                <p class="service-description">
+                    境界確定測量で正確な土地面積を確定。トラブルのない売却を実現。
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 図6: ケース事例 -->
+    <section class="diagram-section scroll-fade">
+        <div class="section-header">
+            <span class="section-label">SUCCESS CASES</span>
+            <h2 class="section-title">実際の成功事例</h2>
+            <p class="section-description">
+                センチュリー21だから実現できた、お客様の成功ストーリー
+            </p>
+        </div>
+        
+        <div class="cases-container">
+            <div class="case-card">
+                <div class="case-header">
+                    <div class="case-number">CASE 01</div>
+                    <div class="case-title">価格×条件の最適化</div>
+                    <img src="19_family改.jpg" alt="家族" class="case-family-icon">
+                </div>
+                <div class="case-body">
+                    <div class="case-result">
+                        <div class="result-icon">📈</div>
+                        <div class="result-text">査定額より120万円UP</div>
+                    </div>
+                    <p class="case-description">
+                        一括査定では2,800万円の査定でしたが、責任者が条件交渉を代行し、2,920万円での成約を実現。さらに引き渡し時期も希望通りに。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="case-card">
+                <div class="case-header">
+                    <div class="case-number">CASE 02</div>
+                    <div class="case-title">リースバックで住み続け</div>
+                    <img src="19_family改.jpg" alt="家族" class="case-family-icon">
+                </div>
+                <div class="case-body">
+                    <div class="case-result">
+                        <div class="result-icon">🏠</div>
+                        <div class="result-text">売却後も5年間居住</div>
+                    </div>
+                    <p class="case-description">
+                        老後資金が必要だが引っ越したくない70代ご夫婦。リースバックで売却後も月8万円の家賃で住み続けることができました。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="case-card">
+                <div class="case-header">
+                    <div class="case-number">CASE 03</div>
+                    <div class="case-title">相続物件をスムーズに</div>
+                    <img src="19_family改.jpg" alt="家族" class="case-family-icon">
+                </div>
+                <div class="case-body">
+                    <div class="case-result">
+                        <div class="result-icon">⚡</div>
+                        <div class="result-text">45日でスピード成約</div>
+                    </div>
+                    <p class="case-description">
+                        相続した実家の処分に困っていた3兄弟。測量から遺産分割協議まで専門家と連携し、わずか45日で売却完了。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2 class="cta-title fade-in">
+            今すぐ無料査定を申し込む
+        </h2>
+        <p class="cta-description fade-in">
+            60秒の簡単入力で、あなたの物件の最適な売却方法をご提案します
+        </p>
+        <div class="cta-buttons fade-in">
+            <a href="#contact" class="cta-primary">
+                <span>📝</span>
+                <span>無料査定を申し込む</span>
+            </a>
+            <a href="tel:0120-43-8639" class="cta-secondary">
+                電話で相談する
+            </a>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer>
+        <img src="century21logo_gold_top.png" alt="センチュリー21" class="footer-logo">
+        <div class="footer-info">
+            株式会社ホームマート<br>
+            〒635-0821 奈良県北葛城郡広陵町笠287-1<br>
+            フリーダイヤル: 0120-43-8639<br>
+            © 2024 Home Mart Inc. All Rights Reserved.
+        </div>
+    </footer>
     
     <script>
         // スクロールアニメーション
@@ -541,17 +1294,27 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
         
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease-out';
+        document.querySelectorAll('.scroll-fade').forEach(el => {
             observer.observe(el);
+        });
+        
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
 </body>
