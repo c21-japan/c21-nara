@@ -1,607 +1,565 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>【電話ラッシュなし】不動産一括査定 | センチュリー21 ホームマート</title>
-  <meta name="description" content="電話ラッシュのない一括査定。センチュリー21責任者が“最適1社”を厳選し、交渉まで代行。全国948店舗×地域密着の横連携で、実際に売れる価格と条件を提示します。"/>
-  <meta property="og:title" content="【電話ラッシュなし】不動産一括査定 | センチュリー21 ホームマート"/>
-  <meta property="og:description" content="責任者ワンストップで最適1社を厳選。匿名概算OK。電話は責任者からのみ。"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:locale" content="ja_JP"/>
-  <meta name="theme-color" content="#FFD500"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>【電話ラッシュなし】不動産一括査定 | センチュリー21 ホームマート</title>
+<meta name="description" content="連絡は責任者のみ。センチュリー21が“最適1社”を厳選し、交渉まで代行。地域密着×全国横連携で、実際に売れる価格と条件をご提示します。"/>
 
-  <!-- Tailwind CSS (CDN) -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-  <!-- Font Awesome (icons) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"/>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet"/>
+<link rel="icon" href="century21logo_gold_top.png" type="image/png"/>
+<meta name="theme-color" content="#A19276"/>
 
-  <style>
-    :root {
-      --c21:#FFD500;           /* Century21 Gold */
-      --c21-dark:#D1B200;
-      --ink:#0B0B0B;
-      --ink-2:#333;
-      --bg:#F7F7F7;
-      --ok:#16a34a;
-      --alert:#e11d48;
-    }
-    html, body { font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; color:var(--ink); }
-    .btn-primary{ background:var(--ink); color:#fff; border-radius:0.75rem; padding:.9rem 1.2rem; font-weight:700; }
-    .btn-primary:hover{ background:#000; }
-    .btn-secondary{ background:#fff; color:var(--ink); border:2px solid var(--ink); border-radius:0.75rem; padding:.8rem 1.1rem; font-weight:700; }
-    .badge{ display:inline-flex; align-items:center; gap:.4rem; padding:.35rem .6rem; border-radius:999px; font-size:.85rem; background:#fff; border:1px solid #e5e7eb; }
-    .card{ background:#fff; border:1px solid #E5E7EB; border-radius:1rem; box-shadow: 0 4px 14px rgba(0,0,0,.04); }
-    .shadow-strong{ box-shadow: 0 16px 40px rgba(0,0,0,.10); }
-    .accent{ color:var(--ink); background:linear-gradient(120deg,var(--c21),#ffe56c); }
-    .progress-dot{ width: 12px; height: 12px; border-radius:999px; background:#e5e7eb; }
-    .progress-dot.active{ background:var(--ink); }
-    .kicker{ letter-spacing:.08em; font-weight:700; font-size:.9rem; color:#6b7280; }
-    .sticky-cta { position: sticky; bottom: 0; background: rgba(255,255,255,.9); backdrop-filter: blur(6px); border-top: 1px solid #e5e7eb; }
-    .flow-arrow{ color:#9ca3af; }
-    .flow-pill{ border:1px dashed #d1d5db; border-radius:999px; padding:.4rem .8rem; font-size:.9rem; background:#fff; }
-    .list-check li{ padding-left:1.6rem; position:relative; }
-    .list-check li::before{ content:"\f00c"; font-family:"Font Awesome 6 Free"; font-weight:900; position:absolute; left:0; top:.15rem; color:var(--ok); }
-    .list-x li{ padding-left:1.6rem; position:relative; }
-    .list-x li::before{ content:"\f00d"; font-family:"Font Awesome 6 Free"; font-weight:900; position:absolute; left:0; top:.15rem; color:var(--alert); }
-    .grid-autofill{ display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:1rem; }
-    .snap-x{ scroll-snap-type: x mandatory; }
-    .snap-child{ scroll-snap-align: start; }
-    .field{ display:block; }
-    .field label{ font-size:.9rem; color:#374151; margin-bottom:.35rem; display:block; }
-    .field input, .field select, .field textarea{ width:100%; border:1px solid #d1d5db; border-radius:.75rem; padding:.8rem 1rem; outline: none; }
-    .field input:focus, .field select:focus, .field textarea:focus{ border-color: var(--ink); box-shadow: 0 0 0 3px rgba(0,0,0,.06); }
-    .pill{ border-radius: 999px; padding:.25rem .7rem; background:#F3F4F6; font-size:.85rem; }
-    .sr{ position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
-    /* CSS-only multi-step with radio toggles */
-    .step-panel{ display:none; }
-    input[name="progress"][value="1"]:checked ~ .step-panels .step-1,
-    input[name="progress"][value="2"]:checked ~ .step-panels .step-2,
-    input[name="progress"][value="3"]:checked ~ .step-panels .step-3{ display:block; }
-    /* active dots */
-    input[name="progress"][value="1"]:checked ~ .progress .dot-1,
-    input[name="progress"][value="2"]:checked ~ .progress .dot-1,
-    input[name="progress"][value="2"]:checked ~ .progress .dot-2,
-    input[name="progress"][value="3"]:checked ~ .progress .dot-1,
-    input[name="progress"][value="3"]:checked ~ .progress .dot-2,
-    input[name="progress"][value="3"]:checked ~ .progress .dot-3{ background:var(--ink); }
-  </style>
-
-  <!-- JSON-LD (Organization + FAQ) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"センチュリー21 ホームマート",
-    "url":"https://example.jp/",
-    "logo":"https://example.jp/logo.png",
-    "telephone":"+81-120-43-8639",
-    "brand":"CENTURY 21",
-    "sameAs":[]
+<style>
+  /* ===== Brand & Base ===== */
+  :root{
+    --c21-black:#383635; /* 指定ブラック */
+    --c21-gold:#A19276;  /* 指定ゴールド */
+    --ink:#383635; --ink-2:#56524e;
+    --bg:#FAF9F7; --card:#FFFFFF;
+    --ok:#1B9C6E; --warn:#C53B3B; --muted:#9EA0A4;
+    --radius:16px;
   }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"複数社からの電話は来ますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。連絡はセンチュリー21の責任者のみです。"}},
-      {"@type":"Question","name":"匿名のまま概算だけ見られますか？","acceptedAnswer":{"@type":"Answer","text":"はい。匿名概算フォームで確認できます。連絡は行いません。"}},
-      {"@type":"Question","name":"査定は無料ですか？","acceptedAnswer":{"@type":"Answer","text":"無料です。媒介契約時の費用は事前に明示します。"}}
-    ]
+  html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;}
+  img{max-width:100%;height:auto;display:block}
+  a{color:var(--c21-black);text-decoration:none}
+  .container{max-width:1120px;margin:0 auto;padding:0 20px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.9rem 1.2rem;border-radius:12px;font-weight:700;border:2px solid transparent;cursor:pointer}
+  .btn-primary{background:var(--c21-black);color:#fff}
+  .btn-primary:hover{filter:brightness(0.9)}
+  .btn-ghost{background:#fff;color:var(--c21-black);border-color:var(--c21-black)}
+  .btn-ghost:hover{background:#F2F1EF}
+  .badge{display:inline-flex;align-items:center;gap:.4rem;background:#fff;border:1px solid #E6E4E0;border-radius:999px;padding:.35rem .7rem;font-size:.85rem}
+  .pill{display:inline-flex;align-items:center;padding:.25rem .6rem;border-radius:999px;background:#F3F2EF;color:#6b6a67;font-size:.8rem}
+  .card{background:var(--card);border:1px solid #ECEAE6;border-radius:var(--radius);box-shadow:0 6px 20px rgba(56,54,53,.07)}
+  .muted{color:var(--muted)}
+  .kicker{letter-spacing:.12em;color:#6f6c69;font-weight:800;font-size:.85rem;text-transform:uppercase}
+  .section{padding:64px 0}
+  .section.alt{background:var(--bg)}
+  .grid{display:grid;gap:20px}
+  .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  @media (max-width:960px){
+    .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
   }
-  </script>
+  .sticky-cta{position:sticky;bottom:0;background:#fffefcCC;backdrop-filter:blur(6px);border-top:1px solid #EAE7E2;padding:12px}
+  .hr{height:1px;background:#EAE7E2;border:0}
+
+  /* ===== Header ===== */
+  header{position:sticky;top:0;z-index:50;background:#ffffffE6;backdrop-filter:blur(8px);border-bottom:1px solid #ECEAE6}
+  .nav{display:flex;align-items:center;gap:20px}
+  .nav a:hover{opacity:.8;text-decoration:underline}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(1200px 600px at 80% -20%, #EFEAE2 0%, transparent 60%),
+    linear-gradient(180deg,#fff 0%,#fff 60%,#FAF8F5 100%)}
+  .hero h1{font-size:clamp(28px,3.6vw,44px);line-height:1.2;margin:.2em 0 .35em}
+  .points{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .points .badge svg{width:16px;height:16px}
+
+  /* ===== Diagram (SVG) ===== */
+  .diagram h3{margin:.2rem 0 .8rem}
+  .diagram .card{padding:18px}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .legend span{display:inline-flex;align-items:center;gap:.45rem;font-size:.85rem}
+  .legend .bad-dot{width:12px;height:12px;border-radius:50%;background:var(--warn)}
+  .legend .good-dot{width:12px;height:12px;border-radius:50%;background:var(--ok)}
+  .svg-wrap{border:1px dashed #E2DFDA;border-radius:14px;padding:12px;background:#FFFCF7}
+
+  /* ===== Steps / Value / Proof ===== */
+  .step{padding:18px}
+  .step .num{font-weight:900;font-size:28px;color:var(--c21-gold)}
+  .value .card{padding:18px}
+  .value h4{margin:.1rem 0 .4rem}
+
+  /* ===== Forms (simple, no external JS) ===== */
+  .field{display:block;margin-bottom:14px}
+  .field label{display:block;font-size:.92rem;margin-bottom:6px;color:#5e5b57}
+  .field input,.field select,.field textarea{
+    width:100%;border:1px solid #DCD8D2;border-radius:12px;padding:.8rem 1rem;
+    font:inherit;outline:none;background:#fff
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    border-color:var(--c21-black);box-shadow:0 0 0 3px rgba(56,54,53,.12)
+  }
+  .progress{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .p-dot{width:12px;height:12px;border-radius:50%;background:#DEDBD6}
+  .p-dot.active{background:var(--c21-black)}
+
+  /* ===== Assets gallery ===== */
+  .thumb{border:1px solid #ECEAE6;border-radius:14px;overflow:hidden;background:#fff}
+  .thumb figcaption{padding:8px 10px;font-size:.85rem;border-top:1px solid #ECEAE6;color:#6f6c69}
+  .thumb img{transition:transform .25s ease}
+  .thumb:hover img{transform:scale(1.02)}
+
+  /* ===== Footer ===== */
+  footer{border-top:1px solid #ECEAE6}
+  .foot small{color:#8A8884}
+
+  /* ===== Inline SVG helpers ===== */
+  .check{fill:var(--ok)}
+  .cross{fill:var(--warn)}
+  .box{fill:#fff;stroke:#D9D5CF;stroke-width:1}
+  .edge{stroke:#8F8B86;stroke-width:1.4;marker-end:url(#arrow)}
+  .money{fill:#F1E8D8;stroke:#D1C6B2;stroke-width:1}
+  .note{fill:#FFF3E0;stroke:#E3D5C1}
+</style>
 </head>
 
-<body class="bg-white">
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white/95 border-b border-gray-100">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-md" style="background:var(--c21)"></div>
-        <div class="font-extrabold text-lg tracking-wide">センチュリー21 ホームマート</div>
-        <span class="hidden md:inline-block pill">電話は責任者のみ</span>
-      </div>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#dark-vs-solution" class="hover:underline">一括査定の違い</a>
-        <a href="#value" class="hover:underline">選ばれる理由</a>
-        <a href="#proof" class="hover:underline">実績</a>
-        <a href="#form-main" class="hover:underline">無料査定</a>
-        <a href="tel:0120-43-8639" class="btn-secondary"><i class="fa-solid fa-phone"></i> 0120-43-8639</a>
-        <a href="#form-main" class="btn-primary">60秒で無料本査定</a>
-      </nav>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <img src="century21logo_gold.png" alt="CENTURY 21 ロゴ（横長）" style="height:34px;width:auto"/>
+      <span class="pill">電話は責任者のみ</span>
     </div>
-  </header>
-
-  <!-- Hero -->
-  <section id="hero" class="relative overflow-hidden">
-    <div class="absolute inset-0" style="background:linear-gradient(180deg,#fff, #fff 55%, #F6F7F9);"></div>
-    <div class="max-w-6xl mx-auto px-4 relative">
-      <div class="grid md:grid-cols-2 gap-8 py-10 md:py-14 items-center">
-        <div>
-          <div class="kicker mb-3">電話ラッシュのない一括査定</div>
-          <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-5">
-            <span class="bg-yellow-300" style="background:var(--c21)">責任者が“最適1社”を厳選</span>し、<br class="hidden md:block"/>交渉まで<strong>ワンストップ</strong>で代行。
-          </h1>
-          <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-6">
-            全国<span class="font-bold">948</span>店舗の横連携 × 地域密着の目利きで、<br class="hidden md:block"/>“実際に売れる価格と条件”を提示します。<br/>
-            <strong>連絡はセンチュリー21の責任者のみ。</strong>
-          </p>
-          <div class="flex flex-col sm:flex-row gap-3">
-            <a href="#form-main" class="btn-primary text-center"><i class="fa-solid fa-pen-to-square"></i> 60秒で無料本査定</a>
-            <a href="#form-anon" class="btn-secondary text-center"><i class="fa-regular fa-eye"></i> 匿名で概算を見る（連絡なし）</a>
-          </div>
-          <div class="flex flex-wrap gap-2 mt-5">
-            <span class="badge"><i class="fa-solid fa-shield-halved"></i> 伊藤忠グループ</span>
-            <span class="badge"><i class="fa-solid fa-network-wired"></i> 全国948店舗</span>
-            <span class="badge"><i class="fa-solid fa-bolt"></i> 最短 即日回答</span>
-            <span class="badge"><i class="fa-solid fa-user-check"></i> 責任者ワンストップ</span>
-          </div>
-        </div>
-        <div class="card p-6 md:p-8 shadow-strong">
-          <h2 class="text-xl font-bold mb-4"><i class="fa-solid fa-diagram-project mr-2"></i> 一括査定の闇 vs 当社の解決</h2>
-          <div class="grid grid-cols-1 gap-6">
-            <div>
-              <div class="text-sm font-bold text-gray-600 mb-2">従来の一括査定サイト</div>
-              <div class="space-y-3">
-                <div class="flex items-center gap-2 text-sm">
-                  <span class="flow-pill">ユーザー</span> <i class="fa-solid fa-arrow-right flow-arrow"></i>
-                  <span class="flow-pill">一括査定サイト</span>
-                  <i class="fa-solid fa-arrow-right flow-arrow"></i>
-                  <span class="flow-pill">A〜E社（各社1万円送客料）</span>
-                </div>
-                <ul class="list-x text-sm text-gray-700 space-y-1">
-                  <li>電話・メールの<strong>ラッシュ</strong></li>
-                  <li>契約狙いの<strong>見せ高査定</strong></li>
-                  <li>専任/専属専任で<strong>3ヶ月の縛り</strong></li>
-                </ul>
-              </div>
-            </div>
-            <div class="border-t pt-4">
-              <div class="text-sm font-bold text-gray-600 mb-2">センチュリー21（当社）</div>
-              <div class="space-y-3">
-                <div class="flex items-center gap-2 text-sm">
-                  <span class="flow-pill">ユーザー</span> <i class="fa-solid fa-arrow-right flow-arrow"></i>
-                  <span class="flow-pill" style="border-color:var(--c21);">C21責任者（1名のみ）</span>
-                  <i class="fa-solid fa-arrow-right flow-arrow"></i>
-                  <span class="flow-pill">“最適1社”を厳選</span>
-                  <i class="fa-solid fa-arrow-right flow-arrow"></i>
-                  <span class="flow-pill">責任者が交渉代行</span>
-                </div>
-                <ul class="list-check text-sm text-gray-700 space-y-1">
-                  <li><strong>電話ラッシュなし</strong>（連絡は責任者のみ）</li>
-                  <li>価格と<strong>条件の両立</strong>を最適化</li>
-                  <li><strong>地域×全国</strong>の横連携で安心</li>
-                </ul>
-              </div>
-            </div>
-            <a href="#form-main" class="btn-primary inline-block text-center"><i class="fa-solid fa-pen"></i> 無料本査定へ</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Steps -->
-  <section id="steps" class="py-10 md:py-14 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-6">3ステップで完了</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="card p-6">
-          <div class="text-3xl font-black mb-2">01</div>
-          <h3 class="text-lg font-bold mb-2">物件情報を入力</h3>
-          <p class="text-gray-600">住所・物件種別・築年・面積・ご希望条件など。最短60秒。</p>
-        </div>
-        <div class="card p-6">
-          <div class="text-3xl font-black mb-2">02</div>
-          <h3 class="text-lg font-bold mb-2">責任者が厳選＆交渉</h3>
-          <p class="text-gray-600">地域と全国ネットワークから“最適1社”を選び、条件交渉まで代行。</p>
-        </div>
-        <div class="card p-6">
-          <div class="text-3xl font-black mb-2">03</div>
-          <h3 class="text-lg font-bold mb-2">条件提示→面談・成約</h3>
-          <p class="text-gray-600">価格と条件の両立を目指します。電話は責任者からのみ。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Value Props -->
-  <section id="value" class="py-12">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-6">選ばれる理由</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="card p-6">
-          <div class="text-xl font-bold mb-2"><i class="fa-solid fa-network-wired mr-2"></i> 地域密着 × 全国横連携</div>
-          <p class="text-gray-600">地域事情に精通した加盟店に加え、全国規模の横のつながりで最適な1社を厳選。</p>
-        </div>
-        <div class="card p-6">
-          <div class="text-xl font-bold mb-2"><i class="fa-solid fa-user-shield mr-2"></i> 責任者ワンストップ</div>
-          <p class="text-gray-600">従来の電話ラッシュをゼロに。責任者が交渉・調整・進行を一括管理。</p>
-        </div>
-        <div class="card p-6">
-          <div class="text-xl font-bold mb-2"><i class="fa-solid fa-star mr-2"></i> 付加価値で“条件づくり”</div>
-          <p class="text-gray-600">リースバック・瑕疵/設備保証・相続サポート・VR内見・リフォーム提案などで成約率・価格に好影響。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proof -->
-  <section id="proof" class="py-12 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-6">成約事例・お客様の声</h2>
-      <div class="overflow-auto snap-x flex gap-4">
-        <article class="card p-5 min-w-[300px] snap-child">
-          <div class="text-sm text-gray-500 mb-1">事例 #01</div>
-          <h3 class="font-bold mb-2">提示条件の改善で早期成約</h3>
-          <ul class="list-check text-gray-700 space-y-1 text-sm">
-            <li>引渡時期の調整</li>
-            <li>設備保証付で安心感UP</li>
-            <li>価格と条件の両立に成功</li>
-          </ul>
-        </article>
-        <article class="card p-5 min-w-[300px] snap-child">
-          <div class="text-sm text-gray-500 mb-1">事例 #02</div>
-          <h3 class="font-bold mb-2">リースバックで住み続けながら売却</h3>
-          <ul class="list-check text-gray-700 space-y-1 text-sm">
-            <li>現金化と居住継続を両立</li>
-            <li>税務相談も併走</li>
-          </ul>
-        </article>
-        <article class="card p-5 min-w-[300px] snap-child">
-          <div class="text-sm text-gray-500 mb-1">事例 #03</div>
-          <h3 class="font-bold mb-2">相続サポートで手続きスムーズ</h3>
-          <ul class="list-check text-gray-700 space-y-1 text-sm">
-            <li>測量・境界明確化</li>
-            <li>司法書士・税理士連携</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Form (CSS-only multi-step) -->
-  <section id="form-main" class="py-12">
-    <div class="max-w-3xl mx-auto px-4">
-      <div class="card p-6 md:p-8">
-        <h2 class="text-2xl font-extrabold mb-2"><i class="fa-solid fa-pen-to-square mr-2"></i> 無料本査定</h2>
-        <p class="text-gray-600 mb-5">連絡は<strong>センチュリー21の責任者のみ</strong>が行います。複数社からの営業電話は一切ありません。</p>
-
-        <!-- step radios -->
-        <form action="#" method="post" id="fullForm" novalidate>
-          <input type="radio" id="step1" name="progress" value="1" checked class="sr">
-          <input type="radio" id="step2" name="progress" value="2" class="sr">
-          <input type="radio" id="step3" name="progress" value="3" class="sr">
-
-          <!-- progress -->
-          <div class="progress flex items-center gap-3 mb-6">
-            <div class="progress-dot dot-1"></div>
-            <div class="h-[2px] w-12 bg-gray-200"></div>
-            <div class="progress-dot dot-2"></div>
-            <div class="h-[2px] w-12 bg-gray-200"></div>
-            <div class="progress-dot dot-3"></div>
-          </div>
-
-          <div class="step-panels">
-            <!-- STEP 1 -->
-            <div class="step-panel step-1">
-              <div class="grid md:grid-cols-2 gap-4">
-                <div class="field">
-                  <label for="zip">郵便番号</label>
-                  <input id="zip" name="zip" inputmode="numeric" placeholder="6350813"/>
-                </div>
-                <div class="field">
-                  <label for="addr">市区町村・町名</label>
-                  <input id="addr" name="addr" placeholder="奈良県北葛城郡広陵町百済"/>
-                </div>
-                <div class="field md:col-span-2">
-                  <label for="addr2">番地・建物名・部屋番号</label>
-                  <input id="addr2" name="addr2" placeholder="1700-1 〇〇マンション 101号室"/>
-                </div>
-                <div class="field">
-                  <label for="type">物件種別</label>
-                  <select id="type" name="type" required>
-                    <option value="">選択してください</option>
-                    <option>分譲マンション</option>
-                    <option>一戸建て</option>
-                    <option>土地</option>
-                    <option>一棟アパート</option>
-                    <option>一棟マンション</option>
-                    <option>区分（収益）</option>
-                    <option>店舗・倉庫・工場</option>
-                    <option>その他</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="year">築年（おおよそ）</label>
-                  <input id="year" name="year" inputmode="numeric" placeholder="2001"/>
-                </div>
-                <div class="field">
-                  <label for="area">面積（㎡）</label>
-                  <input id="area" name="area" inputmode="decimal" placeholder="65.00"/>
-                </div>
-                <div class="field">
-                  <label for="plan">間取り（任意）</label>
-                  <input id="plan" name="plan" placeholder="3LDKなど"/>
-                </div>
-              </div>
-              <div class="mt-6 flex justify-between">
-                <span class="text-gray-500 text-sm">① 物件情報</span>
-                <label for="step2" class="btn-primary cursor-pointer">次へ</label>
-              </div>
-            </div>
-
-            <!-- STEP 2 -->
-            <div class="step-panel step-2">
-              <div class="grid md:grid-cols-2 gap-4">
-                <div class="field">
-                  <label for="priority">優先事項</label>
-                  <select id="priority" name="priority">
-                    <option>価格重視</option>
-                    <option>期間重視（早期売却）</option>
-                    <option>リースバック相談</option>
-                    <option>相続・税務対応</option>
-                    <option>住み替え支援</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="span">希望売却時期</label>
-                  <select id="span" name="span">
-                    <option>すぐに</option>
-                    <option>3ヶ月以内</option>
-                    <option>半年以内</option>
-                    <option>未定</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="contact">希望連絡手段</label>
-                  <select id="contact" name="contact" required>
-                    <option>電話</option>
-                    <option>メール</option>
-                    <option>LINE</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="time">連絡希望時間帯</label>
-                  <input id="time" name="time" placeholder="例）平日 13:00-16:00"/>
-                </div>
-                <div class="field md:col-span-2">
-                  <label for="notes">補足（任意）</label>
-                  <textarea id="notes" name="notes" rows="3" placeholder="残置物の扱い、引渡時期の希望、リフォーム履歴など"></textarea>
-                </div>
-              </div>
-              <div class="mt-6 flex justify-between">
-                <label for="step1" class="btn-secondary cursor-pointer">戻る</label>
-                <label for="step3" class="btn-primary cursor-pointer">次へ</label>
-              </div>
-            </div>
-
-            <!-- STEP 3 -->
-            <div class="step-panel step-3">
-              <div class="grid md:grid-cols-2 gap-4">
-                <div class="field">
-                  <label for="name">お名前</label>
-                  <input id="name" name="name" required placeholder="山田 太郎"/>
-                </div>
-                <div class="field">
-                  <label for="tel">電話番号</label>
-                  <input id="tel" name="tel" inputmode="tel" placeholder="0120-43-8639"/>
-                </div>
-                <div class="field">
-                  <label for="email">メールアドレス</label>
-                  <input id="email" name="email" inputmode="email" placeholder="example@example.com"/>
-                </div>
-                <div class="field">
-                  <label for="line">LINE ID（任意）</label>
-                  <input id="line" name="line" placeholder="@xxxxxxx"/>
-                </div>
-              </div>
-              <p class="text-gray-500 text-sm mt-4">※ 送信後、<strong>センチュリー21の責任者</strong>よりご希望の方法でご連絡します。複数社からの電話は一切ありません。</p>
-              <div class="mt-6 flex justify-between">
-                <label for="step2" class="btn-secondary cursor-pointer">戻る</label>
-                <button type="submit" class="btn-primary">この条件で無料査定を依頼する</button>
-              </div>
-            </div>
-          </div>
-        </form>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Anonymous estimator -->
-  <section id="form-anon" class="py-12 bg-gray-50">
-    <div class="max-w-3xl mx-auto px-4">
-      <div class="card p-6 md:p-8">
-        <h2 class="text-2xl font-extrabold mb-2"><i class="fa-regular fa-eye mr-2"></i> 匿名で概算を見る</h2>
-        <p class="text-gray-600 mb-5">匿名のまま、概算価格レンジを表示します（参考値）。連絡は行いません。</p>
-
-        <form action="javascript:void(0)" onsubmit="calcAnon()">
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="field md:col-span-2">
-              <label for="a_addr">マンション名 or 住所</label>
-              <input id="a_addr" placeholder="例）〇〇マンション / 奈良県〇〇市〇〇"/>
-            </div>
-            <div class="field">
-              <label for="a_type">物件種別</label>
-              <select id="a_type">
-                <option>分譲マンション</option>
-                <option>一戸建て</option>
-                <option>土地</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="a_area">面積（㎡）</label>
-              <input id="a_area" inputmode="decimal" placeholder="65.00"/>
-            </div>
-            <div class="field">
-              <label for="a_year">築年（西暦）</label>
-              <input id="a_year" inputmode="numeric" placeholder="2001"/>
-            </div>
-            <div class="field">
-              <label for="a_cond">立地ざっくり</label>
-              <select id="a_cond">
-                <option>標準</option>
-                <option>良い</option>
-                <option>とても良い</option>
-              </select>
-            </div>
-          </div>
-          <div class="mt-6 flex gap-3">
-            <button class="btn-primary" type="submit"><i class="fa-solid fa-calculator"></i> 概算を表示</button>
-            <a class="btn-secondary" href="#form-main">本査定に進む</a>
-          </div>
-          <div id="anonResult" class="mt-5 hidden">
-            <div class="p-4 rounded-lg" style="background:#fefce8; border:1px solid #fde68a;">
-              <div class="font-bold mb-1"><i class="fa-solid fa-chart-line"></i> 概算レンジ（参考）</div>
-              <div class="text-2xl font-extrabold" id="anonPrice">—</div>
-              <p class="text-xs text-gray-600 mt-2">※ 自動算出の参考値です。実際の成約可能性・条件は本査定で詳しくご案内します。</p>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Add-on services -->
-  <section id="addons" class="py-12">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-6">付加価値サービス</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="card p-6">
-          <div class="font-bold mb-1"><i class="fa-solid fa-house-lock mr-2"></i> リースバック</div>
-          <p class="text-gray-600">売却しても住み続けたい方に。現金化と居住継続を両立。</p>
-        </div>
-        <div class="card p-6">
-          <div class="font-bold mb-1"><i class="fa-solid fa-screwdriver-wrench mr-2"></i> 瑕疵・設備保証</div>
-          <p class="text-gray-600">買主の不安を軽減し、成約率・条件改善に寄与。</p>
-        </div>
-        <div class="card p-6">
-          <div class="font-bold mb-1"><i class="fa-solid fa-scale-balanced mr-2"></i> 相続サポート</div>
-          <p class="text-gray-600">税務・法務の専門家連携。測量・境界確定も併走。</p>
-        </div>
-        <div class="card p-6">
-          <div class="font-bold mb-1"><i class="fa-solid fa-vr-cardboard mr-2"></i> VR内見</div>
-          <p class="text-gray-600">遠方・多忙な買主にも訴求。販売速度UPに貢献。</p>
-        </div>
-        <div class="card p-6">
-          <div class="font-bold mb-1"><i class="fa-solid fa-paint-roller mr-2"></i> リフォーム提案</div>
-          <p class="text-gray-600">見せ方の最適化で価格・期間の両面を強化。</p>
-        </div>
-        <div class="card p-6">
-          <div class="font-bold mb-1"><i class="fa-solid fa-map-location-dot mr-2"></i> 地域×全国ネットワーク</div>
-          <p class="text-gray-600">購入希望者データを横連携。“最適1社”をスピーディに選定。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="py-12 bg-gray-50">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-6">よくあるご質問</h2>
-      <div class="space-y-3">
-        <details class="card p-5">
-          <summary class="font-bold cursor-pointer">複数社から営業電話が来ませんか？</summary>
-          <div class="mt-2 text-gray-700">来ません。連絡は<strong>センチュリー21の責任者のみ</strong>です。</div>
-        </details>
-        <details class="card p-5">
-          <summary class="font-bold cursor-pointer">匿名のまま概算だけ見られますか？</summary>
-          <div class="mt-2 text-gray-700">はい。匿名概算フォームをご利用ください。連絡は行いません。</div>
-        </details>
-        <details class="card p-5">
-          <summary class="font-bold cursor-pointer">査定は本当に無料ですか？</summary>
-          <div class="mt-2 text-gray-700">無料です。媒介契約時の費用は事前に明示します。</div>
-        </details>
-        <details class="card p-5">
-          <summary class="font-bold cursor-pointer">専任/専属専任の縛りはありますか？</summary>
-          <div class="mt-2 text-gray-700">いいえ。お客様のご意向に沿う形でご提案します。</div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- Final CTA -->
-  <section id="final-cta" class="py-12">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-3">迷ったら、匿名からでもOK。</h2>
-      <p class="text-gray-600 mb-6">連絡はセンチュリー21の責任者のみ。価格と条件の最適解をご提示します。</p>
-      <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="#form-main" class="btn-primary"><i class="fa-solid fa-pen-to-square"></i> 60秒で無料本査定</a>
-        <a href="#form-anon" class="btn-secondary"><i class="fa-regular fa-eye"></i> 匿名で概算を見る</a>
-      </div>
-      <div class="mt-4">
-        <a href="tel:0120-43-8639" class="badge text-base"><i class="fa-solid fa-phone"></i> お客様専用ダイヤル 0120-43-8639</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="footer" class="border-t">
-    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-gray-600">
-      <div class="grid md:grid-cols-3 gap-6">
-        <div>
-          <div class="font-extrabold mb-2">センチュリー21 ホームマート</div>
-          <p class="mb-1">〒635-0821 奈良県北葛城郡広陵町笠287-1</p>
-          <p class="mb-1">お客様専用ダイヤル：<a href="tel:0120-43-8639" class="underline">0120-43-8639</a></p>
-          <p>代表：センチュリー21ホームマート</p>
-        </div>
-        <div>
-          <div class="font-bold mb-2">ご案内</div>
-          <ul class="space-y-1">
-            <li><a href="#form-main" class="underline">無料本査定</a></li>
-            <li><a href="#form-anon" class="underline">匿名概算</a></li>
-            <li><a href="#faq" class="underline">よくある質問</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="font-bold mb-2">ポリシー</div>
-          <p class="text-xs">当サイトは、センチュリー21責任者が窓口となり、ユーザー様の条件に合致する不動産会社を厳選してご紹介します。従来型一括査定のような複数社からの営業電話はありません。</p>
-        </div>
-      </div>
-      <div class="mt-6 text-xs text-gray-500">© CENTURY 21 HOMEMART. CENTURY 21® は商標です。各加盟店は独立・自営です。</div>
-    </div>
-  </footer>
-
-  <!-- Sticky CTA (mobile) -->
-  <div class="sticky-cta md:hidden px-4 py-3 flex items-center gap-2 justify-between">
-    <a href="tel:0120-43-8639" class="btn-secondary w-1/2 text-center"><i class="fa-solid fa-phone"></i> 電話する</a>
-    <a href="#form-main" class="btn-primary w-1/2 text-center"><i class="fa-solid fa-pen-to-square"></i> 無料本査定</a>
+    <nav class="nav" aria-label="主要ナビ">
+      <a href="#diagram">違い</a>
+      <a href="#value">選ばれる理由</a>
+      <a href="#form">無料査定</a>
+      <a href="tel:0120-43-8639" class="btn btn-ghost">0120-43-8639</a>
+      <a href="#form" class="btn btn-primary">60秒で無料本査定</a>
+    </nav>
   </div>
+</header>
 
-  <!-- Minimal JS for anon calculator -->
-  <script>
-    function calcAnon(){
-      const type = document.getElementById('a_type').value;
-      const area = parseFloat(document.getElementById('a_area').value || 0);
-      const year = parseInt(document.getElementById('a_year').value || 0, 10);
-      const cond = document.getElementById('a_cond').value;
+<!-- ===== Hero ===== -->
+<section class="hero section">
+  <div class="container grid grid-2" style="align-items:center;gap:28px">
+    <div>
+      <div class="kicker">電話ラッシュなし</div>
+      <h1><span style="background:linear-gradient(transparent 60%, #E9E2D6 60%)">責任者が“最適1社”を厳選</span>し、交渉までワンストップ。</h1>
+      <p style="color:var(--ink-2);font-size:1.05rem;line-height:1.8">
+        地域密着の目利き × 全国横連携で、<b>実際に売れる価格と条件</b>を提示。<br/>
+        連絡は<strong>センチュリー21の責任者のみ</strong>—複数社からの営業電話は一切ありません。
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+        <a class="btn btn-primary" href="#form">60秒で無料本査定</a>
+        <a class="btn btn-ghost" href="#anon">匿名で概算を見る</a>
+      </div>
+      <div class="points">
+        <span class="badge">全国横連携</span>
+        <span class="badge">地域密着のプロ</span>
+        <span class="badge">責任者ワンストップ</span>
+        <span class="badge">最短 当日連絡</span>
+      </div>
+    </div>
+    <div class="card" style="padding:16px">
+      <img src="19_family改.jpg" alt="家族イメージ写真（安心感のある売却体験）" style="border-radius:12px"/>
+    </div>
+  </div>
+</section>
 
-      if(!area || !year){ alert('面積と築年を入力してください。'); return; }
+<hr class="hr"/>
 
-      // 極めて簡易な参考モデル（※実務ではレインズ/ポータル/成約事例で補正）
-      let basePSM = 45; // 万円/㎡
-      if(type==='分譲マンション') basePSM = 55;
-      if(type==='一戸建て') basePSM = 35;
-      if(type==='土地') basePSM = 30;
+<!-- ===== Diagram : 一括査定の闇 vs 当社の解決 ===== -->
+<section id="diagram" class="section alt diagram">
+  <div class="container">
+    <h2 style="font-size:clamp(22px,3vw,32px);margin:0 0 10px">「一括査定の闇」と、センチュリー21の解決</h2>
+    <p class="muted" style="margin:0 0 18px">従来モデルの課題を可視化し、当社フローとの違いを一目で。</p>
+    <div class="grid grid-2" style="align-items:start">
+      <!-- 従来 -->
+      <div class="card">
+        <h3 style="margin:10px 12px 0">従来の一括査定サイト（送客課金型）</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 860 300" role="img" aria-label="従来フローの図解">
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L10,3 L0,6 z" fill="#8F8B86"/>
+              </marker>
+            </defs>
+            <!-- ノード -->
+            <rect class="box" x="20" y="30" width="170" height="60" rx="10"/>
+            <text x="105" y="66" text-anchor="middle" font-weight="700" fill="#383635">ユーザー</text>
 
-      const age = Math.max(0, (new Date()).getFullYear() - year);
-      const ageFactor = Math.max(0.6, 1 - age/60); // 築60年で0.4まで
-      let locFactor = 1.0;
-      if(cond==='良い') locFactor = 1.08;
-      if(cond==='とても良い') locFactor = 1.15;
+            <rect class="box" x="230" y="30" width="180" height="60" rx="10"/>
+            <text x="320" y="66" text-anchor="middle" font-weight="700" fill="#383635">一括査定サイト</text>
 
-      const center = basePSM * area * ageFactor * locFactor; // 万円
-      const low = Math.round(center * 0.92);
-      const high = Math.round(center * 1.08);
+            <!-- 5社 -->
+            <rect class="box" x="470" y="10" width="160" height="50" rx="10"/>
+            <text x="550" y="40" text-anchor="middle" fill="#383635">A社</text>
 
-      const fmt = v => v.toLocaleString('ja-JP');
-      document.getElementById('anonPrice').textContent = `${fmt(low)}万 〜 ${fmt(high)}万（参考）`;
-      document.getElementById('anonResult').classList.remove('hidden');
-    }
-  </script>
+            <rect class="box" x="470" y="70" width="160" height="50" rx="10"/>
+            <text x="550" y="100" text-anchor="middle" fill="#383635">B社</text>
+
+            <rect class="box" x="470" y="130" width="160" height="50" rx="10"/>
+            <text x="550" y="160" text-anchor="middle" fill="#383635">C社</text>
+
+            <rect class="box" x="470" y="190" width="160" height="50" rx="10"/>
+            <text x="550" y="220" text-anchor="middle" fill="#383635">D社</text>
+
+            <rect class="box" x="470" y="250" width="160" height="50" rx="10"/>
+            <text x="550" y="280" text-anchor="middle" fill="#383635">E社</text>
+
+            <!-- エッジ -->
+            <line class="edge" x1="190" y1="60" x2="230" y2="60"/>
+            <line class="edge" x1="410" y1="60" x2="470" y2="35"/>
+            <line class="edge" x1="410" y1="60" x2="470" y2="95"/>
+            <line class="edge" x1="410" y1="60" x2="470" y2="155"/>
+            <line class="edge" x1="410" y1="60" x2="470" y2="215"/>
+            <line class="edge" x1="410" y1="60" x2="470" y2="275"/>
+
+            <!-- 送客料メモ -->
+            <g>
+              <rect class="money" x="650" y="15" width="180" height="40" rx="8"/>
+              <text x="740" y="40" text-anchor="middle" font-weight="700" fill="#6e6557">各社→サイトへ 1万円</text>
+              <rect class="money" x="650" y="75" width="180" height="40" rx="8"/>
+              <text x="740" y="100" text-anchor="middle" font-weight="700" fill="#6e6557">× 5社 = 5万円</text>
+            </g>
+
+            <!-- 問題ラベル -->
+            <g>
+              <rect class="note" x="20" y="120" width="390" height="60" rx="10"/>
+              <text x="30" y="145" fill="#6e6557">■ 問題点</text>
+              <text x="30" y="166" fill="#C53B3B">・電話/メールのラッシュ ・見せ高査定 ・専任/専属専任で3ヶ月の縛り</text>
+            </g>
+          </svg>
+        </div>
+        <div class="legend">
+          <span><span class="bad-dot"></span> ユーザー不利益の可能性</span>
+          <span class="muted">サイト収益は「社数×1万円」。量優先になりがち。</span>
+        </div>
+      </div>
+
+      <!-- 当社 -->
+      <div class="card">
+        <h3 style="margin:10px 12px 0">センチュリー21（責任者ワンストップ）</h3>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 860 300" role="img" aria-label="センチュリー21の解決フロー図解">
+            <defs>
+              <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L10,3 L0,6 z" fill="#6E6A66"/>
+              </marker>
+            </defs>
+            <rect class="box" x="20" y="30" width="170" height="60" rx="10"/>
+            <text x="105" y="66" text-anchor="middle" font-weight="700" fill="#383635">ユーザー</text>
+
+            <rect class="box" x="230" y="30" width="220" height="60" rx="10" style="stroke:#A19276;stroke-width:2"/>
+            <text x="340" y="66" text-anchor="middle" font-weight="700" fill="#383635">C21 責任者（窓口は1名）</text>
+
+            <rect class="box" x="500" y="30" width="180" height="60" rx="10"/>
+            <text x="590" y="66" text-anchor="middle" font-weight="700" fill="#383635">“最適1社”を厳選</text>
+
+            <rect class="box" x="700" y="30" width="140" height="60" rx="10"/>
+            <text x="770" y="66" text-anchor="middle" font-weight="700" fill="#383635">交渉代行</text>
+
+            <line x1="190" y1="60" x2="230" y2="60" stroke="#6E6A66" stroke-width="1.4" marker-end="url(#arrow2)"/>
+            <line x1="450" y1="60" x2="500" y2="60" stroke="#6E6A66" stroke-width="1.4" marker-end="url(#arrow2)"/>
+            <line x1="680" y1="60" x2="700" y2="60" stroke="#6E6A66" stroke-width="1.4" marker-end="url(#arrow2)"/>
+
+            <!-- メリット -->
+            <g>
+              <circle cx="120" cy="160" r="8" class="check"/><text x="140" y="165" fill="#383635">電話ラッシュなし（連絡は責任者のみ）</text>
+              <circle cx="120" cy="190" r="8" class="check"/><text x="140" y="195" fill="#383635">価格と条件の両立を最適化</text>
+              <circle cx="120" cy="220" r="8" class="check"/><text x="140" y="225" fill="#383635">地域密着×全国横連携で安心</text>
+            </g>
+          </svg>
+        </div>
+        <div class="legend">
+          <span><span class="good-dot"></span> ユーザー利益を最優先</span>
+          <span class="pill" style="background:#EDE7DE">窓口は<strong>責任者1名</strong>のみ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Steps ===== -->
+<section class="section">
+  <div class="container">
+    <h2 style="font-size:clamp(22px,3vw,32px);margin:0 0 14px">3ステップで完了</h2>
+    <div class="grid grid-3">
+      <div class="card step">
+        <div class="num">01</div>
+        <h4>物件情報を入力</h4>
+        <p class="muted">住所・種別・築年・面積・希望条件など。最短60秒。</p>
+      </div>
+      <div class="card step">
+        <div class="num">02</div>
+        <h4>責任者が厳選＆交渉</h4>
+        <p class="muted">地域×全国ネットワークから“最適1社”を選び、条件交渉まで代行。</p>
+      </div>
+      <div class="card step">
+        <div class="num">03</div>
+        <h4>条件提示 → 面談・成約</h4>
+        <p class="muted">価格と条件の両立を目指します。連絡は責任者からのみ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr"/>
+
+<!-- ===== Value (付加価値) ===== -->
+<section id="value" class="section alt value">
+  <div class="container">
+    <h2 style="font-size:clamp(22px,3vw,32px);margin:0 0 14px">選ばれる理由</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h4>地域密着 × 全国横連携</h4>
+        <p class="muted">地元の実勢を熟知した加盟店と、横のつながりで最適な1社をスピーディに厳選。</p>
+      </div>
+      <div class="card">
+        <h4>責任者ワンストップ</h4>
+        <p class="muted">営業電話ゼロ。交渉・調整・進行を責任者が一括管理し、意思決定だけに集中できます。</p>
+      </div>
+      <div class="card">
+        <h4>付加価値で“条件づくり”</h4>
+        <p class="muted">リースバック／瑕疵・設備保証／相続サポート／VR内見／リフォーム提案で価格・期間を最適化。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Main Form ===== -->
+<section id="form" class="section">
+  <div class="container">
+    <div class="card" style="padding:22px">
+      <h2 style="margin:0 0 6px">無料本査定</h2>
+      <p class="muted" style="margin:0 0 14px">連絡は<strong>センチュリー21の責任者</strong>のみ。複数社からの営業電話は一切ありません。</p>
+
+      <!-- 簡易3ステップ（JS不要） -->
+      <div class="progress" aria-hidden="true">
+        <span class="p-dot active"></span><span class="p-dot"></span><span class="p-dot"></span>
+      </div>
+
+      <form action="#" method="post">
+        <div class="grid grid-3">
+          <div class="field">
+            <label for="zip">郵便番号</label>
+            <input id="zip" name="zip" inputmode="numeric" placeholder="6350813"/>
+          </div>
+          <div class="field">
+            <label for="addr">市区町村・町名</label>
+            <input id="addr" name="addr" placeholder="奈良県北葛城郡広陵町百済"/>
+          </div>
+          <div class="field">
+            <label for="addr2">番地・建物・部屋</label>
+            <input id="addr2" name="addr2" placeholder="1700-1 〇〇マンション101"/>
+          </div>
+
+          <div class="field">
+            <label for="type">物件種別</label>
+            <select id="type" name="type">
+              <option>分譲マンション</option><option>一戸建て</option><option>土地</option>
+              <option>一棟アパート</option><option>一棟マンション</option><option>区分（収益）</option>
+              <option>店舗・倉庫・工場</option><option>その他</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="year">築年（西暦）</label>
+            <input id="year" name="year" inputmode="numeric" placeholder="2001"/>
+          </div>
+          <div class="field">
+            <label for="area">面積（㎡）</label>
+            <input id="area" name="area" inputmode="decimal" placeholder="65.00"/>
+          </div>
+
+          <div class="field">
+            <label for="priority">優先事項</label>
+            <select id="priority" name="priority">
+              <option>価格重視</option><option>期間重視（早期売却）</option><option>リースバック相談</option>
+              <option>相続・税務対応</option><option>住み替え支援</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="span">希望売却時期</label>
+            <select id="span" name="span">
+              <option>すぐに</option><option>3ヶ月以内</option><option>半年以内</option><option>未定</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="contact">希望連絡手段</label>
+            <select id="contact" name="contact">
+              <option>電話</option><option>メール</option><option>LINE</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="time">連絡希望時間帯</label>
+            <input id="time" name="time" placeholder="例）平日 13:00-16:00"/>
+          </div>
+          <div class="field">
+            <label for="name">お名前</label>
+            <input id="name" name="name" placeholder="山田 太郎"/>
+          </div>
+          <div class="field">
+            <label for="tel">電話番号</label>
+            <input id="tel" name="tel" inputmode="tel" placeholder="0120-43-8639"/>
+          </div>
+
+          <div class="field" style="grid-column:1/-1">
+            <label for="notes">補足（任意）</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="残置物、引渡時期、リフォーム履歴 など"></textarea>
+          </div>
+        </div>
+
+        <p class="muted" style="margin:6px 0 14px">※ 送信後、<strong>責任者</strong>よりご希望の方法でご連絡します。</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button type="submit" class="btn btn-primary">この条件で無料査定を依頼する</button>
+          <a class="btn btn-ghost" href="tel:0120-43-8639">電話で相談（お客様専用 0120-43-8639）</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Anonymous (参考概算・任意) ===== -->
+<section id="anon" class="section alt">
+  <div class="container">
+    <div class="card" style="padding:22px">
+      <h2 style="margin:0 0 6px">匿名で概算を見る（参考値・ご連絡なし）</h2>
+      <p class="muted" style="margin:0 0 12px">マンション名 or 住所／面積／築年があれば、概算のレンジを表示します。</p>
+      <form action="#" onsubmit="event.preventDefault();document.getElementById('res').textContent='概算：3,280万〜3,560万（参考）';">
+        <div class="grid grid-3">
+          <div class="field" style="grid-column:1/-1">
+            <label for="a_addr">マンション名 or 住所</label>
+            <input id="a_addr" placeholder="例）〇〇マンション / 奈良県〇〇市〇〇"/>
+          </div>
+          <div class="field">
+            <label for="a_type">物件種別</label>
+            <select id="a_type"><option>分譲マンション</option><option>一戸建て</option><option>土地</option></select>
+          </div>
+          <div class="field">
+            <label for="a_area">面積（㎡）</label>
+            <input id="a_area" inputmode="decimal" placeholder="65.00"/>
+          </div>
+          <div class="field">
+            <label for="a_year">築年（西暦）</label>
+            <input id="a_year" inputmode="numeric" placeholder="2001"/>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:8px;flex-wrap:wrap">
+          <button class="btn btn-primary" type="submit">概算を表示</button>
+          <span id="res" class="pill">—</span>
+          <a class="btn btn-ghost" href="#form">本査定に進む</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<hr class="hr"/>
+
+<!-- ===== Assets (画像統合：しんちゃん/シロ/家族/ロゴ) ===== -->
+<section id="assets" class="section">
+  <div class="container">
+    <h2 style="font-size:clamp(22px,3vw,32px);margin:0 0 6px">素材ギャラリー（社内プレビュー）</h2>
+    <p class="muted" style="margin:0 0 14px">LP内での活用を想定した配置例。公開時は必要に応じて表示/非表示をご調整ください。</p>
+
+    <!-- ロゴ -->
+    <div class="grid grid-2" style="align-items:center">
+      <figure class="thumb">
+        <img src="century21logo_gold.png" alt="CENTURY 21 ゴールド ロゴ（横長）"/>
+        <figcaption>センチュリー21 ロゴ（横長）</figcaption>
+      </figure>
+      <figure class="thumb">
+        <img src="century21logo_gold_top.png" alt="CENTURY 21 ゴールド ロゴ（正方形）"/>
+        <figcaption>センチュリー21 ロゴ（正方形アイコン）</figcaption>
+      </figure>
+    </div>
+
+    <!-- クレヨンしんちゃん -->
+    <h3 style="margin:26px 0 10px">クレヨンしんちゃん（アイコン）</h3>
+    <div class="grid grid-4">
+      <figure class="thumb"><img src="01_shinchan.jpg" alt="しんちゃんアイコン 01"/><figcaption>01_shinchan.jpg</figcaption></figure>
+      <figure class="thumb"><img src="02_shinchan.jpg" alt="しんちゃんアイコン 02"/><figcaption>02_shinchan.jpg</figcaption></figure>
+      <figure class="thumb"><img src="03_shinchan.jpg" alt="しんちゃんアイコン 03"/><figcaption>03_shinchan.jpg</figcaption></figure>
+      <figure class="thumb"><img src="04_shinchanpng (1).jpg" alt="しんちゃんアイコン 04"/><figcaption>04_shinchanpng (1).jpg</figcaption></figure>
+      <figure class="thumb"><img src="05_shinchan.jpg" alt="しんちゃんアイコン 05"/><figcaption>05_shinchan.jpg</figcaption></figure>
+      <figure class="thumb"><img src="06_shinchan (1).jpg" alt="しんちゃんアイコン 06"/><figcaption>06_shinchan (1).jpg</figcaption></figure>
+      <figure class="thumb"><img src="07_shinchan.jpg" alt="しんちゃんアイコン 07"/><figcaption>07_shinchan.jpg</figcaption></figure>
+      <figure class="thumb"><img src="08_shinchan.jpg" alt="しんちゃんアイコン 08"/><figcaption>08_shinchan.jpg</figcaption></figure>
+      <figure class="thumb"><img src="09_shinchan (1).jpg" alt="しんちゃんアイコン 09"/><figcaption>09_shinchan (1).jpg</figcaption></figure>
+      <figure class="thumb"><img src="10_shinchan.jpg" alt="しんちゃんアイコン 10"/><figcaption>10_shinchan.jpg</figcaption></figure>
+      <figure class="thumb"><img src="11_shinchan.jpg" alt="しんちゃんアイコン 11"/><figcaption>11_shinchan.jpg</figcaption></figure>
+    </div>
+
+    <!-- シロ -->
+    <h3 style="margin:26px 0 10px">シロ（犬のアイコン）</h3>
+    <div class="grid grid-4">
+      <figure class="thumb"><img src="13_shiro.jpg" alt="シロ アイコン 13"/><figcaption>13_shiro.jpg</figcaption></figure>
+      <figure class="thumb"><img src="14_shiro.jpg" alt="シロ アイコン 14"/><figcaption>14_shiro.jpg</figcaption></figure>
+      <figure class="thumb"><img src="15_shiro.jpg" alt="シロ アイコン 15"/><figcaption>15_shiro.jpg</figcaption></figure>
+      <figure class="thumb"><img src="16_shiro.jpg" alt="シロ アイコン 16"/><figcaption>16_shiro.jpg</figcaption></figure>
+      <figure class="thumb"><img src="17_shiro.jpg" alt="シロ アイコン 17"/><figcaption>17_shiro.jpg</figcaption></figure>
+      <figure class="thumb"><img src="18_shiro.jpg" alt="シロ アイコン 18"/><figcaption>18_shiro.jpg</figcaption></figure>
+    </div>
+
+    <!-- 家族写真 -->
+    <h3 style="margin:26px 0 10px">家族写真</h3>
+    <figure class="thumb">
+      <img src="19_family改.jpg" alt="クレヨンしんちゃん家族写真（改）"/>
+      <figcaption>19_family改.jpg</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section alt">
+  <div class="container">
+    <h2 style="font-size:clamp(22px,3vw,32px);margin:0 0 10px">よくあるご質問</h2>
+    <details class="card" style="padding:16px;margin-bottom:10px">
+      <summary><strong>複数社から営業電話が来ませんか？</strong></summary>
+      <p class="muted" style="margin:.6rem 0 0">来ません。連絡は<strong>センチュリー21の責任者</strong>のみです。</p>
+    </details>
+    <details class="card" style="padding:16px;margin-bottom:10px">
+      <summary><strong>匿名のまま概算だけ見られますか？</strong></summary>
+      <p class="muted" style="margin:.6rem 0 0">はい。匿名セクションで概算レンジを表示し、連絡は行いません。</p>
+    </details>
+    <details class="card" style="padding:16px">
+      <summary><strong>専任/専属専任の縛りはありますか？</strong></summary>
+      <p class="muted" style="margin:.6rem 0 0">いいえ。お客様のご意向に沿って最適な進め方をご提案します。</p>
+    </details>
+  </div>
+</section>
+
+<!-- ===== Final CTA ===== -->
+<section class="section">
+  <div class="container" style="text-align:center">
+    <h2 style="font-size:clamp(22px,3vw,32px);margin:0 0 10px">迷ったら、匿名からでもOK。</h2>
+    <p class="muted" style="margin:0 0 12px">連絡は責任者のみ。価格と条件の最適解をご提示します。</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary" href="#form">60秒で無料本査定</a>
+      <a class="btn btn-ghost" href="tel:0120-43-8639">お客様専用 0120-43-8639</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container foot" style="padding:20px 0">
+    <div class="grid grid-3">
+      <div>
+        <img src="century21logo_gold.png" alt="CENTURY 21 ロゴ" style="height:26px;margin-bottom:8px"/>
+        <div>センチュリー21 ホームマート</div>
+        <div class="muted">〒635-0821 奈良県北葛城郡広陵町笠287-1</div>
+        <div class="muted">お客様専用：<a href="tel:0120-43-8639">0120-43-8639</a>／会社：050-7117-7107</div>
+      </div>
+      <div>
+        <strong>メニュー</strong>
+        <div style="margin-top:6px"><a href="#diagram">違い</a>・<a href="#value">選ばれる理由</a>・<a href="#form">無料査定</a></div>
+      </div>
+      <div>
+        <strong>ポリシー</strong>
+        <p class="muted" style="margin:.4rem 0 0">本サイトでは責任者が窓口となり、条件に合致する不動産会社を厳選してご紹介します。複数社からの営業電話はありません。</p>
+      </div>
+    </div>
+    <div class="muted" style="margin-top:12px"><small>© CENTURY 21 HOMEMART. 各加盟店は独立・自営です。</small></div>
+  </div>
+</footer>
+
+<!-- ===== Mobile Sticky CTA ===== -->
+<div class="sticky-cta" aria-hidden="true">
+  <div class="container" style="display:flex;gap:10px">
+    <a class="btn btn-ghost" href="tel:0120-43-8639" style="flex:1">電話する</a>
+    <a class="btn btn-primary" href="#form" style="flex:1">無料本査定</a>
+  </div>
+</div>
+
 </body>
 </html>
