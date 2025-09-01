@@ -193,8 +193,9 @@
     color: white;
   }
   
-  .btn-primary:active {
-    transform: scale(0.98);
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(56,54,53,0.3);
   }
   
   .btn-secondary {
@@ -203,8 +204,9 @@
     border: 2px solid var(--c21-black);
   }
   
-  .btn-secondary:active {
-    background: var(--bg);
+  .btn-secondary:hover {
+    background: var(--c21-black);
+    color: white;
   }
   
   .hero-image {
@@ -611,106 +613,125 @@
     opacity: 0.8;
   }
   
-  /* フォーム */
-  .form-section {
-    padding: 60px 0;
-    background: var(--bg);
-  }
-  
-  .form-card {
-    background: white;
-    border-radius: var(--radius);
-    padding: 24px 20px;
-    box-shadow: var(--shadow);
-  }
-  
-  .form-header {
+  /* CTA（フォームへの誘導） */
+  .cta-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--c21-black) 0%, #4a4745 100%);
+    color: white;
     text-align: center;
-    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
   }
   
-  .form-title {
-    font-size: 24px;
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(161,146,118,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  
+  .cta-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cta-title {
+    font-size: 32px;
     font-weight: 900;
-    margin-bottom: 8px;
-  }
-  
-  .form-description {
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .field {
     margin-bottom: 16px;
   }
   
-  .field label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 6px;
+  .cta-subtitle {
+    font-size: 18px;
+    margin-bottom: 32px;
+    opacity: 0.9;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .cta-btn {
+    flex: 1;
+    padding: 20px 32px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .cta-btn-primary {
+    background: var(--c21-gold);
+    color: white;
+    border: none;
+  }
+  
+  .cta-btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(161,146,118,0.4);
+  }
+  
+  .cta-btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  
+  .cta-btn-secondary:hover {
+    background: white;
     color: var(--c21-black);
   }
   
-  .input,
-  .select,
-  .textarea {
-    width: 100%;
-    padding: 12px 16px;
-    border: 2px solid var(--line);
-    border-radius: 10px;
-    font-size: 15px;
-    font-family: inherit;
-    transition: all 0.3s;
-    background: white;
-  }
-  
-  .input:focus,
-  .select:focus,
-  .textarea:focus {
-    outline: none;
-    border-color: var(--c21-gold);
-    box-shadow: 0 0 0 3px rgba(161,146,118,0.1);
-  }
-  
-  .textarea {
-    resize: vertical;
-    min-height: 80px;
-  }
-  
-  .form-buttons {
+  .cta-features {
     display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+  
+  .cta-feature {
+    display: flex;
+    align-items: center;
     gap: 12px;
-    margin-top: 24px;
   }
   
-  .toast {
-    display: none;
-    margin-top: 12px;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    animation: slideUp 0.5s;
+  .cta-feature-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
   }
   
-  .toast.success {
-    background: var(--success);
-    color: white;
+  .cta-feature-text {
+    text-align: left;
   }
   
-  .toast.error {
-    background: var(--danger);
-    color: white;
+  .cta-feature-title {
+    font-size: 16px;
+    font-weight: 700;
   }
   
-  .toast.show {
-    display: block;
-  }
-  
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  .cta-feature-desc {
+    font-size: 13px;
+    opacity: 0.8;
   }
   
   /* FAQ */
@@ -886,20 +907,12 @@
       flex: 0 0 320px;
     }
     
-    .form-card {
-      padding: 40px;
-      max-width: 800px;
-      margin: 0 auto;
+    .cta-title {
+      font-size: 42px;
     }
     
-    .field-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    
-    .field-full {
-      grid-column: 1 / -1;
+    .cta-buttons {
+      flex-direction: row;
     }
     
     .fixed-cta {
@@ -919,11 +932,7 @@
     transform: translateY(0);
   }
   
-  /* 高評価デザイン要素 */
-  .glow {
-    box-shadow: 0 0 20px rgba(161,146,118,0.3);
-  }
-  
+  /* プレミアムバッジ */
   .premium-badge {
     position: absolute;
     top: -10px;
@@ -935,6 +944,17 @@
     font-size: 11px;
     font-weight: 700;
     box-shadow: 0 4px 12px rgba(161,146,118,0.4);
+  }
+  
+  /* パルスアニメーション */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .pulse {
+    animation: pulse 2s infinite;
   }
 </style>
 </head>
@@ -952,7 +972,7 @@
       <nav class="nav">
         <a href="#comparison">一括査定との違い</a>
         <a href="#cases">成功事例</a>
-        <a href="#form">無料査定</a>
+        <a href="https://form.run/@century21holdings" target="_blank">無料査定</a>
         <a href="tel:0120438639" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">
           📞 0120-43-8639
         </a>
@@ -983,7 +1003,7 @@
         地元買取直結×全国948店舗の販売網で<strong>最高値</strong>を実現。
       </p>
       <div class="hero-buttons">
-        <a href="#form" class="btn btn-primary">60秒で無料査定</a>
+        <a href="https://form.run/@century21holdings" target="_blank" class="btn btn-primary pulse">60秒で無料査定</a>
         <a href="tel:0120438639" class="btn btn-secondary">今すぐ電話</a>
       </div>
       <div class="hero-image">
@@ -1294,114 +1314,51 @@
   </div>
 </section>
 
-<!-- フォーム（Mailjet統合） -->
-<section id="form" class="form-section">
+<!-- CTA（フォームへの誘導） -->
+<section class="cta-section">
   <div class="container">
-    <div class="form-card">
-      <div class="form-header">
-        <h2 class="form-title">無料査定申し込み</h2>
-        <p class="form-description">
-          連絡は<strong>センチュリー21の責任者のみ</strong><br>
-          営業電話ラッシュは一切ありません
-        </p>
+    <div class="cta-content">
+      <h2 class="cta-title fade-in">
+        今すぐ無料査定を申し込む
+      </h2>
+      <p class="cta-subtitle fade-in">
+        60秒の簡単入力で、あなたの物件の最適な売却方法をご提案
+      </p>
+      
+      <div class="cta-buttons fade-in">
+        <a href="https://form.run/@century21holdings" target="_blank" class="cta-btn cta-btn-primary pulse">
+          <span>📝</span>
+          <span>無料査定フォームへ</span>
+        </a>
+        <a href="tel:0120438639" class="cta-btn cta-btn-secondary">
+          <span>📞</span>
+          <span>今すぐ電話相談</span>
+        </a>
       </div>
       
-      <form id="leadForm">
-        <!-- ハニーポット -->
-        <input type="text" id="website" name="website" style="display:none">
-        
-        <div class="field-grid">
-          <div class="field">
-            <label for="zip">郵便番号</label>
-            <input id="zip" name="郵便番号" class="input" inputmode="numeric" placeholder="6350813">
-          </div>
-          
-          <div class="field">
-            <label for="type">物件種別</label>
-            <select id="type" name="物件種別" class="select">
-              <option>分譲マンション</option>
-              <option>一戸建て</option>
-              <option>土地</option>
-              <option>一棟アパート</option>
-              <option>一棟マンション</option>
-              <option>区分（収益）</option>
-              <option>店舗・倉庫・工場</option>
-              <option>その他</option>
-            </select>
-          </div>
-          
-          <div class="field field-full">
-            <label for="addr">物件住所</label>
-            <input id="addr" name="物件住所" class="input" placeholder="奈良県北葛城郡広陵町百済1700-1">
-          </div>
-          
-          <div class="field">
-            <label for="year">築年（西暦）</label>
-            <input id="year" name="築年" class="input" inputmode="numeric" placeholder="2001">
-          </div>
-          
-          <div class="field">
-            <label for="area">面積（㎡）</label>
-            <input id="area" name="面積" class="input" inputmode="decimal" placeholder="65.00">
-          </div>
-          
-          <div class="field">
-            <label for="route">希望売却方法</label>
-            <select id="route" name="希望売却方法" class="select">
-              <option>高値で今すぐ現金化（買取）</option>
-              <option>時間をかけて高く売る（仲介）</option>
-              <option>両方検討したい</option>
-            </select>
-          </div>
-          
-          <div class="field">
-            <label for="priority">優先事項</label>
-            <select id="priority" name="優先事項" class="select">
-              <option>価格重視</option>
-              <option>スピード重視</option>
-              <option>リースバック希望</option>
-              <option>相続相談</option>
-              <option>住み替え</option>
-            </select>
-          </div>
-          
-          <div class="field">
-            <label for="name">お名前</label>
-            <input id="name" name="お名前" class="input" placeholder="山田 太郎" required>
-          </div>
-          
-          <div class="field">
-            <label for="tel">電話番号</label>
-            <input id="tel" name="電話番号" class="input" inputmode="tel" placeholder="090-1234-5678" required>
-          </div>
-          
-          <div class="field field-full">
-            <label for="email">メールアドレス</label>
-            <input id="email" name="メールアドレス" class="input" inputmode="email" placeholder="example@example.com">
-          </div>
-          
-          <div class="field field-full">
-            <label for="notes">ご要望・ご質問（任意）</label>
-            <textarea id="notes" name="ご要望" class="textarea" placeholder="引き渡し時期、リフォーム履歴、残置物など"></textarea>
+      <div class="cta-features fade-in">
+        <div class="cta-feature">
+          <div class="cta-feature-icon">🔒</div>
+          <div class="cta-feature-text">
+            <div class="cta-feature-title">営業電話なし</div>
+            <div class="cta-feature-desc">責任者のみ連絡</div>
           </div>
         </div>
-        
-        <div class="form-buttons">
-          <button id="submitBtn" type="button" class="btn btn-primary" style="flex: 2;">
-            この内容で無料査定を申し込む
-          </button>
-          <a href="tel:0120438639" class="btn btn-secondary" style="flex: 1;">
-            電話で相談
-          </a>
+        <div class="cta-feature">
+          <div class="cta-feature-icon">⚡</div>
+          <div class="cta-feature-text">
+            <div class="cta-feature-title">最短18日</div>
+            <div class="cta-feature-desc">スピード成約</div>
+          </div>
         </div>
-        
-        <div id="toast" class="toast success">
-          ✅ 送信完了！責任者より24時間以内にご連絡いたします。
+        <div class="cta-feature">
+          <div class="cta-feature-icon">💰</div>
+          <div class="cta-feature-text">
+            <div class="cta-feature-title">最高値実現</div>
+            <div class="cta-feature-desc">平均128万円UP</div>
+          </div>
         </div>
-        <div id="toastErr" class="toast error">
-          ❌ 送信に失敗しました。お電話でお問い合わせください。
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 </section>
@@ -1466,18 +1423,11 @@
 <!-- 固定CTA（スマホのみ） -->
 <div class="fixed-cta">
   <a href="tel:0120438639" class="btn btn-secondary">電話相談</a>
-  <a href="#form" class="btn btn-primary">無料査定</a>
+  <a href="https://form.run/@century21holdings" target="_blank" class="btn btn-primary">無料査定</a>
 </div>
 
 <!-- JavaScript -->
 <script>
-// Mailjet設定
-const MJ_PUBLIC = "ea8a23b22f6f39c9a114fff4aae38816";
-const MJ_PRIVATE = "6c1009b39b7856b4e970e1a0143a5259";
-const MJ_ENDPOINT = "https://api.mailjet.com/v3.1/send";
-const FROM_EMAIL = "support@century21.group";
-const TO_EMAIL = "support@century21.group";
-
 // 比較表示切り替え（スマホ）
 function showComparison(type) {
   const problemContent = document.getElementById('problem-content');
@@ -1532,82 +1482,6 @@ document.querySelectorAll('.faq-question').forEach(question => {
   });
 });
 
-// フォーム送信（Mailjet）
-document.getElementById('submitBtn').addEventListener('click', async () => {
-  const form = document.getElementById('leadForm');
-  const toast = document.getElementById('toast');
-  const toastErr = document.getElementById('toastErr');
-  
-  // ハニーポット
-  if (form.website.value) return;
-  
-  // バリデーション
-  if (!form.name.value || !form.tel.value) {
-    alert('お名前と電話番号は必須です');
-    return;
-  }
-  
-  const data = {
-    郵便番号: form.zip.value,
-    物件種別: form.type.value,
-    物件住所: form.addr.value,
-    築年: form.year.value,
-    面積: form.area.value,
-    希望売却方法: form.route.value,
-    優先事項: form.priority.value,
-    お名前: form.name.value,
-    電話番号: form.tel.value,
-    メールアドレス: form.email.value,
-    ご要望: form.notes.value
-  };
-  
-  const subject = `【査定依頼】${data.物件住所} | ${data.お名前}様`;
-  const htmlBody = `
-    <h3>新規査定依頼</h3>
-    <table border="1" cellpadding="8" style="border-collapse: collapse;">
-      ${Object.entries(data).map(([k, v]) => 
-        `<tr><td><strong>${k}</strong></td><td>${v || '-'}</td></tr>`
-      ).join('')}
-    </table>
-  `;
-  
-  const payload = {
-    Messages: [{
-      From: { Email: FROM_EMAIL, Name: "センチュリー21 ホームマート" },
-      To: [{ Email: TO_EMAIL, Name: "査定受付" }],
-      Subject: subject,
-      HTMLPart: htmlBody,
-      TextPart: Object.entries(data).map(([k, v]) => `${k}: ${v || '-'}`).join('\n')
-    }]
-  };
-  
-  document.getElementById('submitBtn').disabled = true;
-  
-  try {
-    const response = await fetch(MJ_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Basic ' + btoa(`${MJ_PUBLIC}:${MJ_PRIVATE}`),
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    });
-    
-    if (response.ok) {
-      toast.classList.add('show');
-      form.reset();
-      setTimeout(() => toast.classList.remove('show'), 5000);
-    } else {
-      throw new Error('送信失敗');
-    }
-  } catch (error) {
-    toastErr.classList.add('show');
-    setTimeout(() => toastErr.classList.remove('show'), 5000);
-  } finally {
-    document.getElementById('submitBtn').disabled = false;
-  }
-});
-
 // スクロールアニメーション
 const observerOptions = {
   threshold: 0.1,
@@ -1626,9 +1500,9 @@ document.querySelectorAll('.fade-in').forEach(el => {
   observer.observe(el);
 });
 
-// モバイルメニュー（実装は省略）
+// モバイルメニュー
 function toggleMenu() {
-  // メニュー開閉処理
+  // メニュー開閉処理（実装は省略）
 }
 </script>
 
